@@ -1,0 +1,27 @@
+<Page x:Class="UnoProgMediaPlayerElementIssue.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:UnoProgMediaPlayerElementIssue"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+	<StackPanel HorizontalAlignment="Center" Margin="60">
+		<TextBlock Text="Test if MediaPlayerElement can be activated from code behind" HorizontalAlignment="Center" />
+        <TextBlock Text="The button below should play a sound from a hidden player" HorizontalAlignment="Center" />
+
+        <Button x:Name="playButton" Content="Play" Click="playButton_Click" Margin="40" HorizontalAlignment="Center"/>
+
+        <MediaPlayerElement x:Name="mediaPlayer"
+                            AreTransportControlsEnabled="True"
+                            Source="ms-appx:///CommonMedia/whistle.mp3"
+                            />
+
+        <MediaPlayerElement x:Name="hiddenMediaPlayer"
+                            AreTransportControlsEnabled="True"
+                            Source="ms-appx:///CommonMedia/bing.mp3"
+                            Visibility="Collapsed"/>
+
+    </StackPanel>
+</Page>

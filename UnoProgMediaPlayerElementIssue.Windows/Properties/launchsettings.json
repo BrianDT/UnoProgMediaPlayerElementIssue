@@ -1,0 +1,10 @@
+{
+  "profiles": {
+	"UnoProgMediaPlayerElementIssue.Windows (Package)": {
+	  "commandName": "MsixPackage"
+	},
+	"UnoProgMediaPlayerElementIssue.Windows (Unpackaged)": {
+	  "commandName": "Project"
+	}
+  }
+}
