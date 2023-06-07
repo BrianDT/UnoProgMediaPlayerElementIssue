@@ -13,15 +13,24 @@
 
         <Button x:Name="playButton" Content="Play" Click="playButton_Click" Margin="40" HorizontalAlignment="Center"/>
 
+
+        <TextBlock Text="Local media file" HorizontalAlignment="Center"  Margin="0,24,0,8"/>
         <MediaPlayerElement x:Name="mediaPlayer"
                             AreTransportControlsEnabled="True"
                             Source="ms-appx:///CommonMedia/whistle.mp3"
-                            />
+                            AutoPlay="False"/>
+
+        <TextBlock Text="Web media file" HorizontalAlignment="Center" Margin="0,24,0,8" />
+        <MediaPlayerElement x:Name="mediaPlayerRemoteMedia"
+                            AreTransportControlsEnabled="True"
+                            Source="https://uno-assets.platform.uno/tests/audio/Getting_Started_with_Uno_Platform_and_Visual_Studio_Code.mp3"
+                            AutoPlay="False"/>
 
         <MediaPlayerElement x:Name="hiddenMediaPlayer"
                             AreTransportControlsEnabled="True"
                             Source="ms-appx:///CommonMedia/bing.mp3"
-                            Visibility="Collapsed"/>
+                            Visibility="Collapsed"
+                            AutoPlay="False"/>
 
     </StackPanel>
 </Page>
