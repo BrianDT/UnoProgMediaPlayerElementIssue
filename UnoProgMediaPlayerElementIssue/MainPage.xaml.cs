@@ -18,17 +18,22 @@ namespace UnoProgMediaPlayerElementIssue
             this.Loaded += (s, e) =>
             {
                 this.dispatcher = SynchronizationContext.Current;
+#if WINDOWS && NET7_0
                 this.hiddenMediaPlayer.MediaPlayer.MediaEnded += this.OnMediaEnded;
                 this.hiddenMediaPlayer.MediaPlayer.MediaFailed += this.OnMediaFailed;
+#endif
             };
 
             this.Unloaded += (s, e) =>
             {
+#if WINDOWS && NET7_0
                 this.hiddenMediaPlayer.MediaPlayer.MediaEnded -= this.OnMediaEnded;
                 this.hiddenMediaPlayer.MediaPlayer.MediaFailed -= this.OnMediaFailed;
+#endif
             };
         }
 
+#if WINDOWS && NET7_0
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -52,14 +57,15 @@ namespace UnoProgMediaPlayerElementIssue
             {
                 this.playButton.IsEnabled = true;
             }, null);
-    }
+        }
 
-    private void OnMediaFailed(MediaPlayer mediaPlayer, object args)
+        private void OnMediaFailed(MediaPlayer mediaPlayer, object args)
         {
             this.dispatcher.Post((_) =>
             {
                 this.playButton.IsEnabled = true;
             }, null);
         }
+#endif
     }
 }
